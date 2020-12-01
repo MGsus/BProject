@@ -19,7 +19,7 @@ spec:
         description: the ibmcloud registry namespace
       - name: imageName
         description: the base image name
-        default: "front-fcproject"
+        default: "frontend-bp"
       - name: registryRegion
         description: the ibmcloud registry region
   workspaces:

@@ -1,29 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-app
+  name: frontend-bp
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: frontend-app
+      app: frontend-bp
   template:
     metadata:
       labels:
-        app: frontend-app
+        app: frontend-bp
     spec:
       containers:
-        - name: frontend-app
-          image: us.icr.io/clstr/frontend-app
+        - name: frontend-bp
+          image: us.icr.io/clstr/frontend-bp
           ports:
             - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend-app
+  name: frontend-bp
   labels:
-    app: frontend-app
+    app: frontend-bp
 spec:
   type: NodePort
   ports:
@@ -32,4 +32,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: frontend-app
+    app: frontend-bp

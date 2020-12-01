@@ -22,7 +22,7 @@ spec:
       default: us-south
     - name: clusterNamespace
       description: The Kubernetes cluster namespace
-      default: proyecto
+      default: bp-ns
   resourcetemplates:
     - apiVersion: v1
       kind: PersistentVolumeClaim
@@ -73,7 +73,7 @@ metadata:
 spec:
   params:
     - name: repository
-      value: "https://github.com/MGsus/FCPro_Frontend"
+      value: "https://github.com/MGsus/BProject"
     - name: revision
       value: "master"
 ---
