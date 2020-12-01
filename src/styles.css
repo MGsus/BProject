@@ -1,0 +1,176 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.table-row {
+  margin: 0 auto;
+  margin-top: 6rem;
+  max-width: 62.5rem;
+  width: 100%;
+}
+
+.row {
+  margin: 0 auto;
+  margin-top: 120px;
+  max-width: 62.5rem;
+  width: 100%;
+}
+
+.title {
+  align-items: center;
+  text-align: center;
+  font: 400 35px/50px Roboto, "Helvetica Neue", sans-serif;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2.5px black;
+}
+.text {
+  margin-top: 40px !important;
+  font: 200 24px/29px Roboto, "Helvetica Neue", sans-serif !important;
+}
+
+.text-subtitle {
+  align-items: center;
+  text-align: center;
+  font: 400 30px/32px Roboto, "Helvetica Neue", sans-serif;
+  padding: 90px 0 20px;
+  color: white;
+  overflow: hidden;
+  background: #1e88e5;
+  width: 100%;
+  text-shadow: 1px 1px 2.5px black;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}
+
+.subtitle {
+  align-items: center;
+  text-align: center;
+  font: 400 30px/32px Roboto, "Helvetica Neue", sans-serif;
+  padding: 90px 0 20px;
+  color: white;
+  overflow: hidden;
+  background: #0d47a1;
+  width: 100%;
+  text-shadow: 1px 1px 2.5px black;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}
+
+.doc-header {
+  padding: 160px 0 100px;
+  color: white;
+  overflow: hidden;
+  background: url("https://img.icons8.com/pastel-glyph/280/ffffff/oil-pump-jack.png")
+    #0d47a1;
+  background-repeat: no-repeat;
+  background-position-y: 5em;
+  background-size: 17em;
+  width: 100%;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.center {
+  text-align: center;
+}
+
+.button-container {
+  flex: 1 1 auto;
+  align-items: center;
+}
+
+.center-img {
+  padding: 0 17em;
+  filter: invert(1);
+  width: 50%;
+  opacity: 0.85;
+}
+
+.tweet-card {
+  max-width: 67rem;
+  width: 100%;
+  margin: 0 0 1em 1em;
+  display: inline-block !important;
+}
+.nlu-card {
+  max-width: 20rem;
+  width: 100%;
+  margin: 0 0 1em 1em;
+  display: inline-block !important;
+}
+
+.row-tweet {
+  margin: 0 auto;
+  margin-top: 4em;
+  max-width: 69.5rem;
+  width: 100%;
+}
+
+.img-container {
+  width: 64px;
+  height: 64px;
+  padding: 0 40px;
+}
+
+.img-container img {
+  width: 100%;
+  height: auto;
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  padding: 2em 0 5em;
+}
+
+.fcontainer {
+  width: 400px;
+}
+
+.fcontainer img {
+  width: 100%;
+  height: auto;
+}
+
+.fcimg {
+  display: flex;
+  align-items: center;
+  padding: 0 0 2em 21.5em;
+}
+
+.about-row {
+  margin: 0 auto;
+  margin-top: 2rem;
+  max-width: 62.5rem;
+  width: 100%;
+}
+
+.body-title {
+  color: #0d47a1;
+  font: 400 28px/32px Roboto, "Helvetica Neue", sans-serif !important;
+}
+
+.bg {
+  background: url("https://img.icons8.com/pastel-glyph/280/000000/oil-pump-jack.png");
+  background-repeat: no-repeat;
+}
+
+.card-watson-image {
+  background-image: url("./assets/Watson.png");
+  background-size: cover;
+}

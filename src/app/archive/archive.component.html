@@ -1,0 +1,51 @@
+<div class="subtitle">Análisis de Archivos</div>
+<div class="row center">
+  <form [formGroup]="archiveForm">
+    <mat-form-field appearance="outline" style="width: 80%;">
+      <mat-label>Ingresa el nombre del archivo con extensión</mat-label>
+      <input matInput value="" name="docName" formControlName="docName" />
+    </mat-form-field>
+    <button mat-button (click)="sendName()" [disabled]="!archiveForm.valid">
+      <mat-icon>send</mat-icon>
+    </button>
+  </form>
+</div>
+<app-loading [condition]="isLoading"></app-loading>
+<div *ngIf="isData">
+  <div class="row-tweet">
+    <mat-card class="tweet-card mat-elevation-z4">
+      <mat-card-header>
+        <div mat-card-avatar>
+          <mat-icon
+            color="accent"
+            fontSet="fas"
+            fontIcon="fa-file-invoice"
+            style="font-size: 40px;"
+          ></mat-icon>
+        </div>
+        <mat-card-title>{{ results.text }}</mat-card-title>
+        <mat-card-subtitle
+          >Texto contenido en el documento
+          <p style="font-weight: bold;">
+            {{ archiveForm.value.docName }}
+          </p></mat-card-subtitle
+        >
+      </mat-card-header>
+    </mat-card>
+  </div>
+
+  <p class="subtitle" style="padding: 3em 0 0; margin: 1em 0 0;">
+    Resultados
+  </p>
+  <div style="background: #0d47a1; padding: 1em 0 21em 0;">
+    <div class="row-tweet">
+      <mat-card *ngFor="let item of data" class="nlu-card mat-elevation-z6">
+        <mat-card-header>
+          <div mat-card-avatar class="card-watson-image"></div>
+          <mat-card-title>{{ item.text }} </mat-card-title>
+          <mat-card-subtitle> {{ item.type }}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </div>
+  </div>
+</div>

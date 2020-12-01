@@ -1,0 +1,19 @@
+.container-searchbox {
+  flex: 1 1 auto;
+  align-items: center;
+  font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif !important;
+}
+
+.full-width {
+  min-width: 0px;
+  max-width: 80%;
+  width: 100%;
+  margin: 0 0 0 100px;
+  padding: 0 4px;
+  flex: 1;
+}
+
+.button-icon {
+  height: 26px;
+  margin: 0 4px 3px 0;
+}

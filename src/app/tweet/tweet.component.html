@@ -1,0 +1,37 @@
+<app-loading [condition]="isLoading"></app-loading>
+
+<div *ngIf="isTweets" class="subtitle">
+  <p>¡Esto es lo que hemos encontrado!</p>
+</div>
+
+<div class="row-tweet">
+  <p *ngIf="isTweets" class="text" style="margin: 0 7rem 2rem !important;">
+    Por cada tarjeta con un tweet encontrarás el análisis realizado por IBM
+    Watson NLU
+  </p>
+  <div *ngFor="let item of tweets">
+    <mat-card class="tweet-card mat-elevation-z6">
+      <mat-card-header>
+        <div mat-card-avatar>
+          <mat-icon
+            color="accent"
+            fontSet="fab"
+            fontIcon="fa-twitter"
+            style="font-size: 35px;"
+          ></mat-icon>
+        </div>
+        <mat-card-title>{{ item.tweet }}</mat-card-title>
+      </mat-card-header>
+    </mat-card>
+    <mat-card
+      class="nlu-card mat-elevation-z6"
+      *ngFor="let elem of item.analysis"
+    >
+      <mat-card-header>
+        <div mat-card-avatar class="card-watson-image"></div>
+        <mat-card-title> {{ elem.text }} </mat-card-title>
+        <mat-card-subtitle>{{ elem.type }}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="subtitle" style="background: #1e88e5 !important;">
+  Análisis de Texto
+</div>
+<div class="row center">
+  <form [formGroup]="textForm">
+    <mat-form-field style="width: 80%;">
+      <mat-label>Ingresa el texto</mat-label>
+      <textarea matInput value="" name="text" formControlName="text"></textarea>
+    </mat-form-field>
+    <button mat-button (click)="sendText()" [disabled]="!textForm.valid">
+      <mat-icon>send</mat-icon>
+    </button>
+  </form>
+</div>
+<app-loading [condition]="isLoading"></app-loading>
+<div *ngIf="isResults">
+  <div class="row-tweet">
+    <mat-card class="tweet-card mat-elevation-z4">
+      <mat-card-header>
+        <div mat-card-avatar>
+          <mat-icon>subject</mat-icon>
+        </div>
+        <mat-card-title>{{ textForm.value.text }}</mat-card-title>
+        <mat-card-subtitle>Este fue el texto que ingresaste</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+  </div>
+  <p class="text-subtitle" style="padding: 3em 0 0; margin: 1em 0 0;">
+    Resultados
+  </p>
+  <div style="background: #1e88e5; padding: 1em 0 21em 0;">
+    <div class="row-tweet">
+      <mat-card *ngFor="let item of results" class="nlu-card mat-elevation-z6">
+        <mat-card-header>
+          <div mat-card-avatar class="card-watson-image"></div>
+          <mat-card-title>{{ item.text }}</mat-card-title>
+          <mat-card-subtitle>{{ item.type }}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </div>
+  </div>
+</div>

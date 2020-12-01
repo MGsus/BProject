@@ -1,0 +1,7 @@
+<app-loading [condition]="isLoading"></app-loading>
+
+<div *ngIf="isText">
+  <div class="subtitle">Historial</div>
+
+  <app-data-table [dataFlow]="data"></app-data-table>
+</div>

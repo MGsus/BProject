@@ -1,0 +1,22 @@
+.row {
+  margin: 0 auto;
+  margin-top: 100px;
+  max-width: 62.5rem;
+  width: 100%;
+}
+
+.title {
+  align-items: center;
+  text-align: center;
+  font: 400 30px/32px Roboto, "Helvetica Neue", sans-serif;
+  margin-bottom: 20px;
+}
+
+.button-container {
+  flex: 1 1 auto;
+  align-items: center;
+}
+.card-avatar-image {
+  background-image: url("https://pdf2link.mybluemix.net/IBM%20Profile.jpeg");
+  background-size: cover;
+}

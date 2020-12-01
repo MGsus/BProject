@@ -1,0 +1,33 @@
+<div class="doc-header">
+  <div class="title">¡Bienvenido a Stein In!</div>
+</div>
+<!-- <mat-divider> </mat-divider> -->
+<div class="row">
+  <p class="text">
+    Stein In te permitirá tomar decisiones acertadas mostrando los comentarios
+    acerca de la industria del petróleo y observar el historial de búsquedas con
+    sus resultados.
+    <br /><br />
+    Puedes empezar buscando por un hashtag relacionado con la industria del
+    petróleo o puedes probar el análisis por texto, como también el análisis por
+    archivos:
+  </p>
+
+  <div style="display: flex; margin-top: 50px;">
+    <span class="button-container"></span>
+    <button
+      mat-raised-button
+      style="background: #1e88e5; color: white;"
+      routerLink="/texto"
+    >
+      <mat-icon>subject</mat-icon>
+      Análisis de texto
+    </button>
+    <span class="button-container"></span>
+    <button mat-raised-button color="accent" routerLink="/archivo">
+      <mat-icon>description</mat-icon>
+      Análisis por archivos
+    </button>
+    <span class="button-container"></span>
+  </div>
+</div>
