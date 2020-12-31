@@ -12,11 +12,11 @@ import { Router } from '@angular/router';
 import { DataTableDataSource, DataTableItem } from './data-table-datasource';
 
 @Component({
-  selector: 'app-data-table',
+  selector: 'app-data-table-opp',
   templateUrl: './data-table.component.html',
   styleUrls: ['./data-table.component.css'],
 })
-export class DataTableComponent implements AfterViewInit, OnInit {
+export class DataTableOppComponent implements AfterViewInit, OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatTable) table: MatTable<DataTableItem>;
@@ -27,23 +27,14 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = [
+    'Numero',
     'Nombre',
-    'Tipo',
-    'Perfilamiento',
-    
-    'Fecha Inicio',
-    'Fecha Fin',
-    'Presentacion',
-    'Contrato ESA',
-    'Kick Off',
-    'Plan',
-    'Comercial',
-    'BP Readiness',
-    'Com Prensa',
-    'Dia Cadencia',
-    'Sig Pasos',
-    'Cad Sem',
-    'Opciones',
+    'BP',
+    'SS',
+    'Fecha',
+    'Q',
+    'Semana',
+    'Monto',
   ];
 
   ngOnInit() {
@@ -58,5 +49,11 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 
   bpDetail(name: string) {
     this.router.navigate([`/bp-detail/${name}`]);
+  }
+
+  editOpp(name: string, opp: string) {
+    this.router.navigate(['/edit-opp/'], {
+      queryParams: { name: name, opp: opp },
+    });
   }
 }

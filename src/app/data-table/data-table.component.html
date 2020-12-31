@@ -1,15 +1,113 @@
-<div class="mat-elevation-z6 table-row">
-  <table mat-table class="full-width-table" matSort aria-label="History">
+<!-- <div class="mat-elevation-z6 table-row"> -->
+<div class="table-container">
+  <table mat-table class="full-width-table" matSort aria-label="Nombre">
     <!-- Id Column -->
-    <ng-container matColumnDef="Fecha">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha</th>
-      <td mat-cell *matCellDef="let row">{{ row.date }}</td>
+    <ng-container matColumnDef="Nombre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+      <td mat-cell *matCellDef="let row">{{ row.bp_nombre }}</td>
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="Nombre">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
-      <td mat-cell *matCellDef="let row">{{ row.doc }}</td>
+    <ng-container matColumnDef="Perfilamiento">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Perfilamiento</th>
+      <td mat-cell *matCellDef="let row">{{ row.bp_perfilamiento }}</td>
+    </ng-container>
+
+    <!-- Tipo Column -->
+    <ng-container matColumnDef="Tipo">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Tipo</th>
+      <td mat-cell *matCellDef="let row">{{ row.bp_tipo }}</td>
+    </ng-container>
+
+    <!-- Fecha Inicio Column -->
+    <ng-container matColumnDef="Fecha Inicio">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Inicio</th>
+      <td mat-cell *matCellDef="let row">{{ row.bp_fecha_inicio }}</td>
+    </ng-container>
+
+    <!-- Fecha Fin Column -->
+    <ng-container matColumnDef="Fecha Fin">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Fin</th>
+      <td mat-cell *matCellDef="let row">{{ row.bp_fecha_fin }}</td>
+    </ng-container>
+
+    <!-- Presentación Column -->
+    <ng-container matColumnDef="Presentacion">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Presentación</th>
+      <td mat-cell *matCellDef="let row">{{ row.bp_presentacion }}</td>
+    </ng-container>
+
+    <!-- Firma contrato Column -->
+    <ng-container matColumnDef="Contrato ESA">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Firma Contrato ESA
+      </th>
+      <td mat-cell *matCellDef="let row">{{ row.bp_firma_contrato_esa }}</td>
+    </ng-container>
+
+    <!-- kick off Column -->
+    <ng-container matColumnDef="Kick Off">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Kick Off</th>
+      <td mat-cell *matCellDef="let row">{{ row.bp_kick_off }}</td>
+    </ng-container>
+    <!-- Plan Column -->
+    <ng-container matColumnDef="Plan">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Plan de negocios
+      </th>
+      <td mat-cell *matCellDef="let row">{{ row.bp_plan_negocios }}</td>
+    </ng-container>
+
+    <!-- Comercial Column -->
+    <ng-container matColumnDef="Comercial">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Comercial</th>
+      <td mat-cell *matCellDef="let row">{{ row.bp_comercial }}</td>
+    </ng-container>
+    <!-- BP Readiness Column -->
+    <ng-container matColumnDef="BP Readiness">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>BP Readiness</th>
+      <td mat-cell *matCellDef="let row">{{ row.bp_rediness }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Com Prensa">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Comunicado de prensa
+      </th>
+      <td mat-cell *matCellDef="let row">{{ row.bp_com_prensa }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Dia Cadencia">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Dia de Cadencias
+      </th>
+      <td mat-cell *matCellDef="let row">{{ row.bp_dia_cadencia }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Sig Pasos">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Siguientes Pasos
+      </th>
+      <td mat-cell *matCellDef="let row">{{ row.bp_sig_pasos }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Cad Sem">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Cadencia Semanal
+      </th>
+      <td mat-cell *matCellDef="let row">{{ row.bp_cad_sem }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Opciones">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Opciones</th>
+      <td mat-cell *matCellDef="let row">
+        <button
+          mat-raised-button
+          style="background: #1e88e5; color: white"
+          (click)="bpDetail(row.bp_nombre)"
+        >
+          Ver más
+        </button>
+      </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -22,6 +120,7 @@
     [pageIndex]="0"
     [pageSize]="50"
     [pageSizeOptions]="[25, 50, 100, 250]"
+    style="width: 100%"
   >
   </mat-paginator>
 </div>

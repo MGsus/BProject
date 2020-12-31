@@ -1,0 +1,8 @@
+<div
+  *ngIf="message.body"
+  class="alert"
+  [ngClass]="'alert-' + message.type"
+  role="alert"
+>
+  <b>Nueva Notificación:</b> {{ message.body }}
+</div>

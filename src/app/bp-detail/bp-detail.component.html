@@ -1,0 +1,278 @@
+<app-loading [condition]="isLoading"></app-loading>
+<app-msg [message]="msg.message"></app-msg>
+
+<div *ngIf="isText" class="row">
+  <div>
+    <p class="text">{{ bp.bp_nombre }}</p>
+    <p>Contrato ESA firmado en {{ bp.bp_firma_contrato_esa }}</p>
+  </div>
+  <div style="float: left">
+    <h2 class="text">Certificaciones</h2>
+    <div *ngFor="let cert of bp.bp_cert">
+      <p>{{ cert.cert_nombre }}</p>
+      <p>Tipo de certificación: {{ cert.cert_tipo }}</p>
+      <p>Nivel de certificación: {{ cert.cert_nivel }}</p>
+    </div>
+  </div>
+  <div *ngIf="isOpp">
+    <app-chart [datos]="bp_opp"></app-chart>
+  </div>
+  <div>
+    <h2 class="text">Resumen Oportunidades</h2>
+    <table class="table">
+      <tr>
+        <th>Categoria</th>
+        <th>Cantidad</th>
+        <th>Monto Total</th>
+        <th>Rendimiento</th>
+      </tr>
+      <tr>
+        <td>Ganados</td>
+        <td>{{ stage_ganados }}</td>
+        <td>{{ opp_monto_ganados }} M</td>
+        <td>{{ opp_won_rendimiento }}%</td>
+      </tr>
+      <tr>
+        <td>Perdidos</td>
+        <td>{{ stage_lost }}</td>
+        <td>{{ opp_monto_lost }} M</td>
+        <td>{{ opp_lost_rendimiento }}%</td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-top: 10px">
+    <button
+      mat-raised-button
+      style="background: #1e88e5; color: white"
+      (click)="newCert()"
+    >
+      Agregar Certificación
+    </button>
+
+    <button
+      mat-raised-button
+      style="background: #1e88e5; color: white; margin-left: 30px"
+      (click)="newOpp()"
+    >
+      Agregar Oportunidad
+    </button>
+  </div>
+</div>
+
+<div *ngIf="isCert">
+  <div class="row">
+    <form [formGroup]="certForm">
+      <div class="full-width">
+        <p class="text">Formulario de Certificaciones</p>
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Nombre</mat-label>
+          <input
+            matInput
+            value=""
+            name="cert_nombre"
+            formControlName="cert_nombre"
+          />
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Certificación Comercial</mat-label>
+          <select
+            matNativeControl
+            required
+            name="cert_comercial"
+            formControlName="cert_comercial"
+          >
+            <option value="true">Si</option>
+            <option value="false">No</option>
+          </select>
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Certificación Técnica</mat-label>
+          <select
+            matNativeControl
+            required
+            name="cert_tecnica"
+            formControlName="cert_tecnica"
+          >
+            <option value="true">Si</option>
+            <option value="false">No</option>
+          </select>
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Tipo</mat-label>
+          <input
+            matInput
+            value=""
+            name="cert_tipo"
+            formControlName="cert_tipo"
+          />
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Puesto</mat-label>
+          <input
+            matInput
+            value=""
+            name="cert_puesto"
+            formControlName="cert_puesto"
+          />
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Nivel de la certificación</mat-label>
+          <select
+            matNativeControl
+            required
+            name="cert_nivel"
+            formControlName="cert_nivel"
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Fecha Target</mat-label>
+          <input
+            matInput
+            value=""
+            name="cert_fecha_tar"
+            formControlName="cert_fecha_tar"
+          />
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Correo Electrónico</mat-label>
+          <input
+            matInput
+            value=""
+            name="cert_correo"
+            formControlName="cert_correo"
+          />
+        </mat-form-field>
+
+        <button mat-button (click)="insertCert()">Agregar Certificación</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="isOppForm">
+  <div class="row">
+    <form [formGroup]="oppForm">
+      <div class="full-width">
+        <!-- Fecha de creacion -->
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Fecha de Creación</mat-label>
+          <input
+            matInput
+            value=""
+            name="opp_fecha_creacion"
+            formControlName="opp_fecha_creacion"
+          />
+        </mat-form-field>
+
+        <!-- Numero de oportunidad -->
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Número de Oportunidad</mat-label>
+          <input
+            matInput
+            value=""
+            name="opp_numero"
+            formControlName="opp_numero"
+          />
+        </mat-form-field>
+
+        <!-- nombre de oportunidad -->
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Nombre de la Oportunidad</mat-label>
+          <input
+            matInput
+            value=""
+            name="opp_nombre"
+            formControlName="opp_nombre"
+          />
+        </mat-form-field>
+
+        <!-- Tipo de oportunidad -->
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Tipo de Oportunidad</mat-label>
+          <select
+            matNativeControl
+            required
+            name="opp_tipo"
+            formControlName="opp_tipo"
+          >
+            <option value="TCV">TCV</option>
+            <option value="ACV">ACV</option>
+          </select>
+        </mat-form-field>
+
+        <!-- Monto de oportunidad -->
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Monto de Oportunidad</mat-label>
+          <input
+            matInput
+            value="Monto en Millones"
+            name="opp_monto"
+            formControlName="opp_monto"
+          />
+        </mat-form-field>
+
+        <!-- Sales Stage -->
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Sales Stage</mat-label>
+          <select
+            matNativeControl
+            required
+            name="opp_sales_stage"
+            formControlName="opp_sales_stage"
+          >
+            <option value="Identified">Identified</option>
+            <option value="Validated">Validated</option>
+            <option value="Qualified">Qualified</option>
+            <option value="Won">Won</option>
+            <option value="Lost">Lost</option>
+          </select>
+        </mat-form-field>
+
+        <!-- Quarter -->
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Quarter</mat-label>
+          <select
+            matNativeControl
+            required
+            name="opp_quarter"
+            formControlName="opp_quarter"
+          >
+            <option value="Q1">Q1</option>
+            <option value="Q2">Q2</option>
+            <option value="Q3">Q3</option>
+            <option value="Q4">Q4</option>
+          </select>
+        </mat-form-field>
+
+        <!-- Week -->
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Semana</mat-label>
+          <select
+            matNativeControl
+            required
+            name="opp_week"
+            formControlName="opp_week"
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </mat-form-field>
+        <button mat-button (click)="insertOpp()">Agregar Oportunidad</button>
+      </div>
+    </form>
+  </div>
+</div>

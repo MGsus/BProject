@@ -1,0 +1,16 @@
+﻿<app-loading [condition]="isLoading"></app-loading>
+<app-msg [message]="msg.message"></app-msg>
+<div *ngIf="isText">
+  <app-data-table class="table" [dataFlow]="data"></app-data-table>
+</div>
+<div style="display: flex; margin-top: 50px">
+  <span class="button-container"></span>
+  <button
+    mat-raised-button
+    style="background: #1e88e5; color: white"
+    [routerLink]="['/new-bp']"
+  >
+    <mat-icon>subject</mat-icon>
+    Crear nuevo BP
+  </button>
+</div>

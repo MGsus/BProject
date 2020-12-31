@@ -6,6 +6,11 @@ import { HomeComponent } from './home/home.component';
 import { TweetComponent } from './tweet/tweet.component';
 import { TextComponent } from './text/text.component';
 import { ArchiveComponent } from './archive/archive.component';
+import { BpComponent } from './bp/bp.component';
+import { BpDetailComponent } from './bp-detail/bp-detail.component';
+import { NewBPComponent } from './new-bp/new-bp.component';
+import { OppComponent } from './opp/opp.component';
+import { OppEditComponent } from './opp-edit/opp-edit.component';
 
 const routes: Routes = [
   { path: 'historial', component: HistoryComponent },
@@ -14,6 +19,11 @@ const routes: Routes = [
   { path: 'tweet/:hashtag', component: TweetComponent },
   { path: 'texto', component: TextComponent },
   { path: 'archivo', component: ArchiveComponent },
+  { path: 'bp', component: BpComponent },
+  { path: 'bp-detail/:name', component: BpDetailComponent },
+  { path: 'new-bp', component: NewBPComponent },
+  { path: 'opp', component: OppComponent },
+  // { path: 'edit-opp/:name/:opp', component: OppEditComponent },
 ];
 
 @NgModule({

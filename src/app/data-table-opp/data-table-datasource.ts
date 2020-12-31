@@ -7,22 +7,13 @@ import { Observable, of as observableOf, merge } from 'rxjs';
 // TODO: Replace this with your own data model type
 export interface DataTableItem {
   bp_nombre: string;
-  bp_perfilamiento: string;
-  bp_tipo: string;
-  bp_status: string;
-  bp_fecha_inicio: Date;
-  bp_fecha_fin: Date;
-  bp_presentacion: string;
-  bp_firma_contrato_esa: string;
-  bp_kick_off: string;
-  bp_plan_negocios: string;
-  bp_comercial: string;
-  bp_readiness: string;
-  bp_com_prensa: string;
-  bp_dia_cadencia: string;
-  bp_sig_pasos: string;
-  bp_cad_sem: string;
-  bp_progre: string;
+  opp_fecha_creacion: string;
+  opp_monto: string;
+  opp_nombre: string;
+  opp_numero: Number;
+  opp_quarter: string;
+  opp_sales_stage: string;
+  opp_week: Number;
 }
 
 /**
@@ -90,8 +81,8 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
       switch (this.sort.active) {
         case 'Nombre':
           return compare(a.bp_nombre, b.bp_nombre, isAsc);
-        case 'Tipo':
-          return compare(a.bp_tipo, b.bp_tipo, isAsc);
+        case 'Q':
+          return compare(a.bp_nombre, b.bp_nombre, isAsc);
         default:
           return 0;
       }

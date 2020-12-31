@@ -1,4 +1,4 @@
-apiVersion: tekton.dev/v1alpha1
+apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
   name: pipeline
@@ -22,7 +22,7 @@ spec:
       default: us-south
     - name: clusterNamespace
       description: The Kubernetes cluster namespace
-      default: bp-ns
+      default: bp
   workspaces:
   - name: pipeline-pvc
   tasks:

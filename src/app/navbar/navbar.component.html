@@ -3,33 +3,24 @@
     mat-button
     aria-hidden="true"
     aria-label="Inicio"
-    routerLink="/"
+    routerLink="/bp"
     title="Inicio"
   >
     <span class="mat-button-wrapper">
-      <img src="https://img.icons8.com/windows/28/ffffff/coal.png" style="margin: 0 5px 0 0;">
-      Stein In
+      <img
+        src="https://img.icons8.com/nolan/28/loading-sign.png"
+        style="margin: 0 5px 0 0"
+      />
+      BP
     </span>
   </a>
-  <a mat-button routerLink="/historial">Historial</a>
 
-  <div class="container-searchbox">
-    <form [formGroup]="searchTweetsForm">
-      <div class="full-width">
-        <mat-form-field style="width: 100%;" appearance="standard">
-          <mat-label>#Hashtag</mat-label>
-          <input matInput value="" name="hashtag" formControlName="hashtag" />
-        </mat-form-field>
-        <button
-          mat-button
-          (click)="searchTweet()"
-          [disabled]="!searchTweetsForm.valid"
-        >
-          <mat-icon>search</mat-icon>
-        </button>
-      </div>
-    </form>
-  </div>
-
-  <a mat-button routerLink="/acerca">Acerca</a>
+  <a mat-button routerLink="/opp">Oportunities</a>
+  <div class="container-searchbox"></div>
+  <a *ngIf="!isAuth" mat-button href="http://localhost:3000/auth/login"
+    >Ingresar</a
+  >
+  <a *ngIf="isAuth" mat-button href="http://localhost:3000/auth/logout"
+    >Salir</a
+  >
 </mat-toolbar>

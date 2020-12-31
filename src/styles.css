@@ -10,9 +10,9 @@ body {
 }
 
 .table-row {
-  margin: 0 auto;
+  /* margin: 0 auto; */
   margin-top: 6rem;
-  max-width: 62.5rem;
+  max-width: 100%;
   width: 100%;
 }
 
@@ -173,4 +173,18 @@ body {
 .card-watson-image {
   background-image: url("./assets/Watson.png");
   background-size: cover;
+}
+
+.table-container {
+  margin: 100px 0.5rem;
+  max-width: 100%;
+}
+
+.table {
+  text-align: center;
+}
+
+.warning {
+  background: #f1f512;
+  color: #000000;
 }

@@ -1,0 +1,166 @@
+﻿<div class="row">
+  <form [formGroup]="newBPForm">
+    <div class="full-width">
+      <mat-form-field style="width: 100%" appearance="standard">
+        <mat-label>Nombre del BP</mat-label>
+        <input matInput value="" name="bp_nombre" formControlName="bp_nombre" />
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%" appearance="standard">
+        <mat-label>Perfilamiento</mat-label>
+        <input
+          matInput
+          value=""
+          name="bp_perfilamiento"
+          formControlName="bp_perfilamiento"
+        />
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%" appearance="standard">
+        <mat-label>Tipo</mat-label>
+        <input matInput value="" name="bp_tipo" formControlName="bp_tipo" />
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%" appearance="standard">
+        <mat-label>Fecha Inicio</mat-label>
+        <input
+          matInput
+          value=""
+          placeholder="Mes/Dia/Año"
+          name="bp_fecha_inicio"
+          formControlName="bp_fecha_inicio"
+        />
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%" appearance="standard">
+        <mat-label>Fecha Fin</mat-label>
+        <input
+          matInput
+          value=""
+          name="bp_fecha_fin"
+          placeholder="Mes/Dia/Año"
+          formControlName="bp_fecha_fin"
+        />
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%" appearance="standard">
+        <mat-label>Presentación</mat-label>
+        <input
+          matInput
+          value=""
+          name="bp_presentacion"
+          formControlName="bp_presentacion"
+        />
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%" appearance="standard">
+        <mat-label>Contrato ESA</mat-label>
+        <input
+          matInput
+          value=""
+          name="bp_firma_contrato_esa"
+          formControlName="bp_firma_contrato_esa"
+        />
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%" appearance="standard">
+        <mat-label>Kick Off</mat-label>
+        <input
+          matInput
+          value=""
+          name="bp_kick_off"
+          formControlName="bp_kick_off"
+        />
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%" appearance="standard">
+        <mat-label>Plan de Negocios</mat-label>
+        <input
+          matInput
+          value=""
+          name="bp_plan_negocios"
+          formControlName="bp_plan_negocios"
+        />
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%" appearance="standard">
+        <mat-label>Comercial</mat-label>
+        <input
+          matInput
+          value=""
+          name="bp_comercial"
+          formControlName="bp_comercial"
+        />
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%" appearance="standard">
+        <mat-label>BP Readiness</mat-label>
+        <input
+          matInput
+          value=""
+          name="bp_readiness"
+          formControlName="bp_readiness"
+        />
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%" appearance="standard">
+        <mat-label>Comunicado de prensa</mat-label>
+        <input
+          matInput
+          value=""
+          name="bp_com_prensa"
+          formControlName="bp_com_prensa"
+        />
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%" appearance="standard">
+        <mat-label>Quarter to be Closed</mat-label>
+        <input
+          matInput
+          value=""
+          name="bp_quarter_closed"
+          formControlName="bp_quarter_closed"
+        />
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%" appearance="standard">
+        <mat-label>Dia de cadencias</mat-label>
+        <input
+          matInput
+          value=""
+          name="bp_dia_cadencia"
+          formControlName="bp_dia_cadencia"
+        />
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%" appearance="standard">
+        <mat-label>Siguientes Pasos</mat-label>
+        <input
+          matInput
+          value=""
+          name="bp_sig_pasos"
+          formControlName="bp_sig_pasos"
+        />
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%" appearance="standard">
+        <mat-label>Cadencia semanal</mat-label>
+        <input
+          matInput
+          value=""
+          name="bp_cad_sem"
+          formControlName="bp_cad_sem"
+        />
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        style="background: #1e88e5; color: white"
+        (click)="newBP()"
+        [disabled]="!newBPForm.valid"
+      >
+        Ingresar
+      </button>
+    </div>
+  </form>
+</div>

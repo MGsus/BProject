@@ -1,0 +1,121 @@
+﻿<app-loading [condition]="isLoading"></app-loading>
+
+<div *ngIf="isText">
+  <app-data-table-opp [dataFlow]="data"></app-data-table-opp>
+</div>
+
+<div *ngIf="isOpp">
+  <div class="row">
+    <form [formGroup]="oppForm">
+      <div class="full-width">
+        <!-- Fecha de creacion -->
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Fecha de Creación</mat-label>
+          <input
+            matInput
+            
+            name="opp_fecha_creacion"
+            formControlName="opp_fecha_creacion"
+          />
+        </mat-form-field>
+
+        <!-- Numero de oportunidad -->
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Número de Oportunidad</mat-label>
+          <input
+            matInput
+            value=""
+            name="opp_numero"
+            formControlName="opp_numero"
+          />
+        </mat-form-field>
+
+        <!-- nombre de oportunidad -->
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Nombre de la Oportunidad</mat-label>
+          <input
+            matInput
+            value=""
+            name="opp_nombre"
+            formControlName="opp_nombre"
+          />
+        </mat-form-field>
+
+        <!-- Tipo de oportunidad -->
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Tipo de Oportunidad</mat-label>
+          <select
+            matNativeControl
+            required
+            name="opp_tipo"
+            formControlName="opp_tipo"
+          >
+            <option value="TCV">TCV</option>
+            <option value="ACV">ACV</option>
+          </select>
+        </mat-form-field>
+
+        <!-- Monto de oportunidad -->
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Monto de Oportunidad</mat-label>
+          <input
+            matInput
+            value="Monto en Millones"
+            name="opp_monto"
+            formControlName="opp_monto"
+          />
+        </mat-form-field>
+
+        <!-- Sales Stage -->
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Sales Stage</mat-label>
+          <select
+            matNativeControl
+            required
+            name="opp_sales_stage"
+            formControlName="opp_sales_stage"
+          >
+            <option value="Identified">Identified</option>
+            <option value="Validated">Validated</option>
+            <option value="Qualified">Qualified</option>
+            <option value="Won">Won</option>
+            <option value="Lost">Lost</option>
+          </select>
+        </mat-form-field>
+
+        <!-- Quarter -->
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Quarter</mat-label>
+          <select
+            matNativeControl
+            required
+            name="opp_quarter"
+            formControlName="opp_quarter"
+          >
+            <option value="Q1">Q1</option>
+            <option value="Q2">Q2</option>
+            <option value="Q3">Q3</option>
+            <option value="Q4">Q4</option>
+          </select>
+        </mat-form-field>
+
+        <!-- Week -->
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Semana</mat-label>
+          <select
+            matNativeControl
+            required
+            name="opp_week"
+            formControlName="opp_week"
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </mat-form-field>
+        <button mat-button (click)="updateOpp()">Actualizar Oportunidad</button>
+      </div>
+    </form>
+  </div>
+</div>
