@@ -2,7 +2,7 @@
   <form [formGroup]="newBPForm">
     <div class="full-width">
       <mat-form-field style="width: 100%" appearance="standard">
-        <mat-label>Nombre del BP</mat-label>
+        <mat-label>Nombre</mat-label>
         <input matInput value="" name="bp_nombre" formControlName="bp_nombre" />
       </mat-form-field>
 
@@ -18,7 +18,16 @@
 
       <mat-form-field style="width: 100%" appearance="standard">
         <mat-label>Tipo</mat-label>
-        <input matInput value="" name="bp_tipo" formControlName="bp_tipo" />
+        <select
+          matNativeControl
+          required
+          name="bp_tipo"
+          formControlName="bp_tipo"
+        >
+          <option value="ISV">ISV</option>
+          <option value="MSP">MSP</option>
+          <option value="BP">BP</option>
+        </select>
       </mat-form-field>
 
       <mat-form-field style="width: 100%" appearance="standard">
@@ -140,16 +149,6 @@
           value=""
           name="bp_sig_pasos"
           formControlName="bp_sig_pasos"
-        />
-      </mat-form-field>
-
-      <mat-form-field style="width: 100%" appearance="standard">
-        <mat-label>Cadencia semanal</mat-label>
-        <input
-          matInput
-          value=""
-          name="bp_cad_sem"
-          formControlName="bp_cad_sem"
         />
       </mat-form-field>
 

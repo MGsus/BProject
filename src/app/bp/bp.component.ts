@@ -39,8 +39,7 @@ export class BpComponent implements OnInit {
           const dias = fechaActual.getDate() - fechaFin.getDate();
 
           switch (true) {
-            case 7 < dias || dias < 14:
-              console.log(dias);
+            case 7 < dias && dias < 14:
               this._snackBar.open(
                 `La Fecha Fin del BP ${item.bp_nombre} está próxima. Faltan ${
                   fechaActual.getDate() - fechaFin.getDate()
@@ -53,10 +52,11 @@ export class BpComponent implements OnInit {
               );
 
               break;
-            case 0 < dias || dias <= 7:
-              console.log(dias);
+            case 0 < dias && dias <= 7:
               this._snackBar.open(
-                `La Fecha Fin del BP ${item.bp_nombre} es en menos de 7 dias. Faltan ${
+                `La Fecha Fin del BP ${
+                  item.bp_nombre
+                } es en menos de 7 dias. Faltan ${
                   fechaActual.getDate() - fechaFin.getDate()
                 } día(s)`,
                 'Cerrar',
@@ -66,8 +66,18 @@ export class BpComponent implements OnInit {
                 }
               );
               break;
+            case dias < 0:
+              this._snackBar.open(
+                `La Fecha Fin del BP ${item.bp_nombre} se ha cumplido. Por favor actualizar la información`,
+                'Cerrar',
+                {
+                  horizontalPosition: 'center',
+                  verticalPosition: 'top',
+                }
+              );
+              break;
             default:
-              console.log(dias);
+              // console.log(dias);
               break;
           }
         });

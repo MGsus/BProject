@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
 export class MsgComponent {
   @Input() message = { body: '', type: '' };
 
-  setMessage(body: string, type: string, time = 100000) {
+  setMessage(body: string, type: string, time = 9000) {
     this.message.body = body;
     this.message.type = type;
     setTimeout(() => (this.message.body = ''), time);

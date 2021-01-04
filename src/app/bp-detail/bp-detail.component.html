@@ -6,7 +6,7 @@
     <p class="text">{{ bp.bp_nombre }}</p>
     <p>Contrato ESA firmado en {{ bp.bp_firma_contrato_esa }}</p>
   </div>
-  <div style="float: left">
+  <div *ngIf="isCert" style="float: left">
     <h2 class="text">Certificaciones</h2>
     <div *ngFor="let cert of bp.bp_cert">
       <p>{{ cert.cert_nombre }}</p>
@@ -17,7 +17,7 @@
   <div *ngIf="isOpp">
     <app-chart [datos]="bp_opp"></app-chart>
   </div>
-  <div>
+  <div *ngIf="isOpp">
     <h2 class="text">Resumen Oportunidades</h2>
     <table class="table">
       <tr>
@@ -56,10 +56,18 @@
     >
       Agregar Oportunidad
     </button>
+
+    <button
+      mat-raised-button
+      style="background: #1e88e5; color: white; margin-left: 30px"
+      (click)="isEditBP()"
+    >
+      Editar BP
+    </button>
   </div>
 </div>
 
-<div *ngIf="isCert">
+<div *ngIf="isCertForm">
   <div class="row">
     <form [formGroup]="certForm">
       <div class="full-width">
@@ -169,8 +177,10 @@
         <mat-form-field style="width: 100%" appearance="standard">
           <mat-label>Fecha de Creación</mat-label>
           <input
+            required
             matInput
             value=""
+            placeholder="Mes/Dia/Año"
             name="opp_fecha_creacion"
             formControlName="opp_fecha_creacion"
           />
@@ -181,6 +191,7 @@
           <mat-label>Número de Oportunidad</mat-label>
           <input
             matInput
+            required
             value=""
             name="opp_numero"
             formControlName="opp_numero"
@@ -189,8 +200,9 @@
 
         <!-- nombre de oportunidad -->
         <mat-form-field style="width: 100%" appearance="standard">
-          <mat-label>Nombre de la Oportunidad</mat-label>
+          <mat-label>Nombre</mat-label>
           <input
+            required
             matInput
             value=""
             name="opp_nombre"
@@ -217,6 +229,7 @@
           <mat-label>Monto de Oportunidad</mat-label>
           <input
             matInput
+            required
             value="Monto en Millones"
             name="opp_monto"
             formControlName="opp_monto"
@@ -269,9 +282,190 @@
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="13">12</option>
+            <option value="13">13</option>
           </select>
         </mat-form-field>
         <button mat-button (click)="insertOpp()">Agregar Oportunidad</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="isEditForm">
+  <div class="row">
+    <form [formGroup]="editBPForm">
+      <div class="full-width">
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Nombre</mat-label>
+          <input
+            matInput
+            value=""
+            name="bp_nombre"
+            formControlName="bp_nombre"
+          />
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Perfilamiento</mat-label>
+          <input
+            matInput
+            value=""
+            name="bp_perfilamiento"
+            formControlName="bp_perfilamiento"
+          />
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Tipo</mat-label>
+          <select
+            matNativeControl
+            required
+            name="bp_tipo"
+            formControlName="bp_tipo"
+          >
+            <option value="ISV">ISV</option>
+            <option value="MSP">MSP</option>
+            <option value="BP">BP</option>
+          </select>
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Fecha Inicio</mat-label>
+          <input
+            matInput
+            value=""
+            placeholder="Mes/Dia/Año"
+            name="bp_fecha_inicio"
+            formControlName="bp_fecha_inicio"
+          />
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Fecha Fin</mat-label>
+          <input
+            matInput
+            value=""
+            name="bp_fecha_fin"
+            placeholder="Mes/Dia/Año"
+            formControlName="bp_fecha_fin"
+          />
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Presentación</mat-label>
+          <input
+            matInput
+            value=""
+            name="bp_presentacion"
+            formControlName="bp_presentacion"
+          />
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Contrato ESA</mat-label>
+          <input
+            matInput
+            value=""
+            name="bp_firma_contrato_esa"
+            formControlName="bp_firma_contrato_esa"
+          />
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Kick Off</mat-label>
+          <input
+            matInput
+            value=""
+            name="bp_kick_off"
+            formControlName="bp_kick_off"
+          />
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Plan de Negocios</mat-label>
+          <input
+            matInput
+            value=""
+            name="bp_plan_negocios"
+            formControlName="bp_plan_negocios"
+          />
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Comercial</mat-label>
+          <input
+            matInput
+            value=""
+            name="bp_comercial"
+            formControlName="bp_comercial"
+          />
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>BP Readiness</mat-label>
+          <input
+            matInput
+            value=""
+            name="bp_readiness"
+            formControlName="bp_readiness"
+          />
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Comunicado de prensa</mat-label>
+          <input
+            matInput
+            value=""
+            name="bp_com_prensa"
+            formControlName="bp_com_prensa"
+          />
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Quarter to be Closed</mat-label>
+          <input
+            matInput
+            value=""
+            name="bp_quarter_closed"
+            formControlName="bp_quarter_closed"
+          />
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Dia de cadencias</mat-label>
+          <input
+            matInput
+            value=""
+            name="bp_dia_cadencia"
+            formControlName="bp_dia_cadencia"
+          />
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%" appearance="standard">
+          <mat-label>Siguientes Pasos</mat-label>
+          <input
+            matInput
+            value=""
+            name="bp_sig_pasos"
+            formControlName="bp_sig_pasos"
+          />
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          style="background: #1e88e5; color: white"
+          (click)="editBP()"
+        >
+          Actualizar
+        </button>
       </div>
     </form>
   </div>
