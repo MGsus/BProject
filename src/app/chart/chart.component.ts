@@ -21,8 +21,8 @@ export class ChartComponent implements OnInit {
     },
     title: {
       display: true,
-      text: "Monto de oportunidades según el Quarter"
-    }
+      text: 'Monto de oportunidades según el Quarter',
+    },
   };
   ssIdentifiedQ1: number;
   ssValidatedQ1: number;
@@ -81,74 +81,80 @@ export class ChartComponent implements OnInit {
 
     console.log(this.datos);
     this.datos.forEach((item: any) => {
-      switch (item.opp_sales_stage) {
-        case 'Validated':
-          switch (item.opp_quarter) {
-            case 'Q1':
-              this.ssValidatedQ1 += Number.parseFloat(item.opp_monto);
+      switch (item.opp_tipo) {
+        case 'TCV':
+          switch (item.opp_sales_stage) {
+            case 'Validated':
+              switch (item.opp_quarter) {
+                case 'Q1':
+                  this.ssValidatedQ1 += Number.parseFloat(item.opp_monto);
+                  break;
+                case 'Q2':
+                  this.ssValidatedQ2 += Number.parseFloat(item.opp_monto);
+                  break;
+                case 'Q3':
+                  this.ssValidatedQ3 += Number.parseFloat(item.opp_monto);
+                  break;
+                case 'Q4':
+                  this.ssValidatedQ4 += Number.parseFloat(item.opp_monto);
+                  break;
+                default:
+                  break;
+              }
               break;
-            case 'Q2':
-              this.ssValidatedQ2 += Number.parseFloat(item.opp_monto);
+            case 'Identified':
+              switch (item.opp_quarter) {
+                case 'Q1':
+                  this.ssIdentifiedQ1 += Number.parseFloat(item.opp_monto);
+                  break;
+                case 'Q2':
+                  this.ssIdentifiedQ2 += Number.parseFloat(item.opp_monto);
+                  break;
+                case 'Q3':
+                  this.ssIdentifiedQ3 += Number.parseFloat(item.opp_monto);
+                  break;
+                case 'Q4':
+                  this.ssIdentifiedQ4 += Number.parseFloat(item.opp_monto);
+                  break;
+                default:
+                  break;
+              }
               break;
-            case 'Q3':
-              this.ssValidatedQ3 += Number.parseFloat(item.opp_monto);
+            case 'Qualified':
+              switch (item.opp_quarter) {
+                case 'Q1':
+                  this.ssQualifiedQ1 += Number.parseFloat(item.opp_monto);
+                  break;
+                case 'Q2':
+                  this.ssQualifiedQ2 += Number.parseFloat(item.opp_monto);
+                  break;
+                case 'Q3':
+                  this.ssQualifiedQ3 += Number.parseFloat(item.opp_monto);
+                  break;
+                case 'Q4':
+                  this.ssQualifiedQ4 += Number.parseFloat(item.opp_monto);
+                  break;
+                default:
+                  break;
+              }
               break;
-            case 'Q4':
-              this.ssValidatedQ4 += Number.parseFloat(item.opp_monto);
-              break;
-            default:
-              break;
-          }
-          break;
-        case 'Identified':
-          switch (item.opp_quarter) {
-            case 'Q1':
-              this.ssIdentifiedQ1 += Number.parseFloat(item.opp_monto);
-              break;
-            case 'Q2':
-              this.ssIdentifiedQ2 += Number.parseFloat(item.opp_monto);
-              break;
-            case 'Q3':
-              this.ssIdentifiedQ3 += Number.parseFloat(item.opp_monto);
-              break;
-            case 'Q4':
-              this.ssIdentifiedQ4 += Number.parseFloat(item.opp_monto);
-              break;
-            default:
-              break;
-          }
-          break;
-        case 'Qualified':
-          switch (item.opp_quarter) {
-            case 'Q1':
-              this.ssQualifiedQ1 += Number.parseFloat(item.opp_monto);
-              break;
-            case 'Q2':
-              this.ssQualifiedQ2 += Number.parseFloat(item.opp_monto);
-              break;
-            case 'Q3':
-              this.ssQualifiedQ3 += Number.parseFloat(item.opp_monto);
-              break;
-            case 'Q4':
-              this.ssQualifiedQ4 += Number.parseFloat(item.opp_monto);
-              break;
-            default:
-              break;
-          }
-          break;
-        case 'Won':
-          switch (item.opp_quarter) {
-            case 'Q1':
-              this.ssWonQ1 += Number.parseFloat(item.opp_monto);
-              break;
-            case 'Q2':
-              this.ssWonQ2 += Number.parseFloat(item.opp_monto);
-              break;
-            case 'Q3':
-              this.ssWonQ3 += Number.parseFloat(item.opp_monto);
-              break;
-            case 'Q4':
-              this.ssWonQ4 += Number.parseFloat(item.opp_monto);
+            case 'Won':
+              switch (item.opp_quarter) {
+                case 'Q1':
+                  this.ssWonQ1 += Number.parseFloat(item.opp_monto);
+                  break;
+                case 'Q2':
+                  this.ssWonQ2 += Number.parseFloat(item.opp_monto);
+                  break;
+                case 'Q3':
+                  this.ssWonQ3 += Number.parseFloat(item.opp_monto);
+                  break;
+                case 'Q4':
+                  this.ssWonQ4 += Number.parseFloat(item.opp_monto);
+                  break;
+                default:
+                  break;
+              }
               break;
             default:
               break;

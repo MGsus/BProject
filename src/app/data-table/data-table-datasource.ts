@@ -21,7 +21,6 @@ export interface DataTableItem {
   bp_com_prensa: string;
   bp_dia_cadencia: string;
   bp_sig_pasos: string;
-  bp_cad_sem: string;
   bp_progre: string;
 }
 

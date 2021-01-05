@@ -38,6 +38,16 @@
         <td>{{ opp_monto_lost }} M</td>
         <td>{{ opp_lost_rendimiento }}%</td>
       </tr>
+      <tr>
+        <td>TCV</td>
+        <td>{{ tcv }}</td>
+        <td>{{ tcv_monto }}</td>
+      </tr>
+      <tr>
+        <td>ACV</td>
+        <td>{{ acv }}</td>
+        <td>{{ acv_monto }}</td>
+      </tr>
     </table>
   </div>
   <div style="margin-top: 10px">
@@ -136,6 +146,7 @@
             name="cert_nivel"
             formControlName="cert_nivel"
           >
+            <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -400,7 +411,7 @@
         </mat-form-field>
 
         <mat-form-field style="width: 100%" appearance="standard">
-          <mat-label>Comercial</mat-label>
+          <mat-label>Certificacion Comercial</mat-label>
           <input
             matInput
             value=""
@@ -426,16 +437,6 @@
             value=""
             name="bp_com_prensa"
             formControlName="bp_com_prensa"
-          />
-        </mat-form-field>
-
-        <mat-form-field style="width: 100%" appearance="standard">
-          <mat-label>Quarter to be Closed</mat-label>
-          <input
-            matInput
-            value=""
-            name="bp_quarter_closed"
-            formControlName="bp_quarter_closed"
           />
         </mat-form-field>
 

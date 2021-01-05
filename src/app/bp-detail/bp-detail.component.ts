@@ -28,6 +28,11 @@ export class BpDetailComponent implements OnInit {
   opp_lost_rendimiento: number;
   opp_won_rendimiento: number;
 
+  acv: number;
+  acv_monto: number;
+  tcv: number;
+  tcv_monto: number;
+
   certForm: FormGroup;
   cert_comercial = new FormControl();
   cert_tecnica = new FormControl();
@@ -85,6 +90,10 @@ export class BpDetailComponent implements OnInit {
     this.opp_lost_rendimiento = 0.0;
     this.opp_won_rendimiento = 0.0;
     this.opp_monto_ganados = 0.0;
+    this.tcv = 0;
+    this.acv = 0;
+    this.tcv_monto = 0.0;
+    this.acv_monto = 0.0;
     this.routerParam.params.subscribe((res) => {
       this.bp_nombre = res.name;
       this.isLoading = true;
@@ -104,15 +113,28 @@ export class BpDetailComponent implements OnInit {
           this.isText = true;
           if (typeof this.bp_opp !== 'undefined') {
             this.bp_opp.forEach((opp: any) => {
-              switch (opp.opp_sales_stage) {
-                case 'Won':
-                  this.stage_ganados++;
-                  this.opp_monto_ganados += Number.parseFloat(opp.opp_monto);
+              switch (opp.opp_tipo) {
+                case 'TCV':
+                  this.tcv++;
+                  this.tcv_monto += Number.parseFloat(opp.opp_monto);
+                  switch (opp.opp_sales_stage) {
+                    case 'Won':
+                      this.stage_ganados++;
+                      this.opp_monto_ganados += Number.parseFloat(
+                        opp.opp_monto
+                      );
+                      break;
+                    case 'Lost':
+                      this.stage_lost++;
+                      this.opp_monto_lost += Number.parseFloat(opp.opp_monto);
+                      break;
+                    default:
+                      break;
+                  }
                   break;
-                case 'Lost':
-                  this.stage_lost++;
-                  this.opp_monto_lost += Number.parseFloat(opp.opp_monto);
-                  break;
+                case 'ACV':
+                  this.acv++;
+                  this.acv_monto += Number.parseFloat(opp.opp_monto);
                 default:
                   break;
               }
@@ -158,12 +180,14 @@ export class BpDetailComponent implements OnInit {
   insertCert() {
     this.bpService.insertCert(this.bp_nombre, this.certForm.value).subscribe(
       (ans) =>
-        this._snackBar.open(`Certificación creada correctamente`, `Cerrar`, {
-          horizontalPosition: 'center',
-          verticalPosition: 'top',
-        }),
+        this.msg.setMessage(
+          `Certificación creada satisfactoriamente`,
+          'success'
+        ),
       (err) => console.log(err),
-      () => this.router.navigate([`/bp-detail/${this.bp_nombre}`])
+      () => {
+        this.router.navigate([`/bp-detail/${this.bp_nombre}`]);
+      }
     );
   }
 
@@ -212,7 +236,9 @@ export class BpDetailComponent implements OnInit {
       (ans) =>
         this.msg.setMessage(`Oportunidad creada satisfactoriamente`, 'success'),
       (err) => console.log(err),
-      () => this.router.navigate([`/bp-detail/${this.bp_nombre}`])
+      () => {
+        this.router.navigate([`/bp-detail/${this.bp_nombre}`]);
+      }
     );
   }
 

@@ -30,7 +30,7 @@ export class DataTableComponent implements AfterViewInit, OnInit {
     'Nombre',
     'Tipo',
     'Perfilamiento',
-    
+
     'Fecha Inicio',
     'Fecha Fin',
     'Presentacion',
@@ -42,7 +42,6 @@ export class DataTableComponent implements AfterViewInit, OnInit {
     'Com Prensa',
     'Dia Cadencia',
     'Sig Pasos',
-    'Cad Sem',
     'Opciones',
   ];
 

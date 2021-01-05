@@ -49,7 +49,7 @@ export class BpService {
     });
   }
   insertOpp(bpNombre: String, opp: Opp): Observable<any> {
-    return this.http.put(
+    return this.http.post(
       `http://169.57.42.77:30937/api/bp/insertOpp`,
       {
         bp_nombre: bpNombre,

@@ -12,8 +12,10 @@
         <mat-form-field style="width: 100%" appearance="standard">
           <mat-label>Fecha de Creación</mat-label>
           <input
+            required
             matInput
-            
+            value=""
+            placeholder="Mes/Dia/Año"
             name="opp_fecha_creacion"
             formControlName="opp_fecha_creacion"
           />
@@ -24,6 +26,7 @@
           <mat-label>Número de Oportunidad</mat-label>
           <input
             matInput
+            required
             value=""
             name="opp_numero"
             formControlName="opp_numero"
@@ -32,8 +35,9 @@
 
         <!-- nombre de oportunidad -->
         <mat-form-field style="width: 100%" appearance="standard">
-          <mat-label>Nombre de la Oportunidad</mat-label>
+          <mat-label>Nombre</mat-label>
           <input
+            required
             matInput
             value=""
             name="opp_nombre"
@@ -60,6 +64,7 @@
           <mat-label>Monto de Oportunidad</mat-label>
           <input
             matInput
+            required
             value="Monto en Millones"
             name="opp_monto"
             formControlName="opp_monto"
@@ -112,6 +117,15 @@
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="13">12</option>
+            <option value="13">13</option>
           </select>
         </mat-form-field>
         <button mat-button (click)="updateOpp()">Actualizar Oportunidad</button>

@@ -15,7 +15,7 @@ import { OppEditComponent } from './opp-edit/opp-edit.component';
 const routes: Routes = [
   { path: 'historial', component: HistoryComponent },
   { path: 'acerca', component: AboutComponent },
-  { path: '', component: HomeComponent },
+  { path: '', component: BpComponent },
   { path: 'tweet/:hashtag', component: TweetComponent },
   { path: 'texto', component: TextComponent },
   { path: 'archivo', component: ArchiveComponent },
@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'bp-detail/:name', component: BpDetailComponent },
   { path: 'new-bp', component: NewBPComponent },
   { path: 'opp', component: OppComponent },
-  // { path: 'edit-opp/:name/:opp', component: OppEditComponent },
+  { path: 'opp-detail/:name/:opp', component: OppEditComponent },
 ];
 
 @NgModule({
