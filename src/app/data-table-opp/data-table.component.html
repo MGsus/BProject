@@ -22,11 +22,7 @@
     <!-- Fecha Inicio Column -->
     <ng-container matColumnDef="SS">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Sales Stage</th>
-      <td mat-cell *matCellDef="let row">
-        <button mat-button (click)="editOpp(row.bp_nombre, row.opp_numero)">
-          {{ row.opp_sales_stage }}
-        </button>
-      </td>
+      <td mat-cell *matCellDef="let row">{{ row.opp_sales_stage }}</td>
     </ng-container>
 
     <!-- Fecha Fin Column -->

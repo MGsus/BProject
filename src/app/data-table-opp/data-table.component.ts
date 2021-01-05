@@ -47,7 +47,7 @@ export class DataTableOppComponent implements AfterViewInit, OnInit {
     this.table.dataSource = this.dataSource;
   }
 
-  bpDetail(name: string, opp_nombre: string) {
+  oppDetail(name: string, opp_nombre: string) {
     this.router.navigate([`/opp-detail/${name}/${opp_nombre}`]);
   }
 }
