@@ -1,19 +1,19 @@
 ﻿<app-loading [condition]="isLoading"></app-loading>
 
-<div *ngIf="isText">
-  <app-data-table-opp [dataFlow]="data"></app-data-table-opp>
-</div>
-
-<div *ngIf="isOpp">
-  <div class="row">
-    <button
-      mat-raised-button
-      style="background: #1e88e5; color: white; margin-left: 30px"
-      (click)="editOpp()"
-    >
-      Editar Oportunidad
-    </button>
+<div *ngIf="isOpp" class="row">
+  <div>
+    <p class="text">{{ bp_opp.opp_nombre }}</p>
+    <p>Numero de oportunidad {{ bp_opp.opp_numero }}</p>
+    <p>Tipo de oportunidad {{ bp_opp.opp_tipo }}</p>
+    <p>Monto de oportunidad ${{ bp_opp.opp_monto }} en millones</p>
   </div>
+  <button
+    mat-raised-button
+    style="background: #1e88e5; color: white; margin-left: 30px"
+    (click)="editOpp()"
+  >
+    Editar Oportunidad
+  </button>
 </div>
 
 <div *ngIf="isEditForm">

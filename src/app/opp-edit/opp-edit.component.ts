@@ -45,8 +45,8 @@ export class OppEditComponent implements OnInit {
           this.bp = bp;
 
           bp.bp_opp.forEach((item: any) => {
-            console.log(`${item} es igual a ${res.opp_nombre}`);
-            if (item.opp_nombre == res.opp_nombre) {
+            console.log(`${item.opp_nombre} es igual a ${res.opp}`);
+            if (item.opp_nombre == res.opp) {
               this.isOpp = true;
               this.bp_opp = item;
             }
