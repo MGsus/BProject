@@ -20,7 +20,7 @@ export class AuthService {
     else return of(this.user);
   }
 
-  private isLoggedURL = 'http://169.57.42.77:31064/auth/logged';
+  private isLoggedURL = 'http://169.57.42.77:30937/auth/logged';
   checkAuth(): Observable<User> {
     console.log('calling auth service');
     let req = this.http.get<User>(this.isLoggedURL, { withCredentials: true });
