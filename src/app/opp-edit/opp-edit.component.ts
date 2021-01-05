@@ -28,6 +28,7 @@ export class OppEditComponent implements OnInit {
   opp_quarter: FormControl = new FormControl();
   opp_week: FormControl = new FormControl();
   opp_monto: FormControl = new FormControl();
+  isEditForm: boolean;
 
   constructor(
     private bpService: BpService,
@@ -44,6 +45,7 @@ export class OppEditComponent implements OnInit {
           this.bp = bp;
 
           bp.bp_opp.forEach((item: any) => {
+            console.log(item);
             if (item.opp_nombre == res.opp_nombre) {
               this.isOpp = true;
               this.bp_opp = item;
@@ -53,19 +55,24 @@ export class OppEditComponent implements OnInit {
         (err) => console.error(err),
         () => {
           this.isLoading = false;
-
-          this.oppForm = this.formBuilder.group({
-            opp_fecha_creacion: this.bp_opp.opp_fecha_creacion,
-            opp_nombre: this.bp_opp.opp_nombre,
-            opp_numero: this.bp_opp.opp_numero,
-            opp_tipo: this.bp_opp.opp_tipo,
-            opp_sales_stage: this.bp_opp.opp_sales_stage,
-            opp_quarter: this.bp_opp.opp_quarter,
-            opp_week: this.bp_opp.opp_week,
-            opp_monto: this.bp_opp.opp_monto,
-          });
         }
       );
+    });
+  }
+
+  editOpp() {
+    this.isOpp = false;
+    this.isEditForm = true;
+
+    this.oppForm = this.formBuilder.group({
+      opp_fecha_creacion: this.bp_opp.opp_fecha_creacion,
+      opp_nombre: this.bp_opp.opp_nombre,
+      opp_numero: this.bp_opp.opp_numero,
+      opp_tipo: this.bp_opp.opp_tipo,
+      opp_sales_stage: this.bp_opp.opp_sales_stage,
+      opp_quarter: this.bp_opp.opp_quarter,
+      opp_week: this.bp_opp.opp_week,
+      opp_monto: this.bp_opp.opp_monto,
     });
   }
 

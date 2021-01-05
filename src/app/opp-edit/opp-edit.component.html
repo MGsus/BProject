@@ -6,6 +6,18 @@
 
 <div *ngIf="isOpp">
   <div class="row">
+    <button
+      mat-raised-button
+      style="background: #1e88e5; color: white; margin-left: 30px"
+      (click)="editOpp()"
+    >
+      Editar Oportunidad
+    </button>
+  </div>
+</div>
+
+<div *ngIf="isEditForm">
+  <div class="row">
     <form [formGroup]="oppForm">
       <div class="full-width">
         <!-- Fecha de creacion -->
