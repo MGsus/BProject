@@ -35,6 +35,7 @@ export class DataTableOppComponent implements AfterViewInit, OnInit {
     'Q',
     'Semana',
     'Monto',
+    'Opciones',
   ];
 
   ngOnInit() {
