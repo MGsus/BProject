@@ -84,4 +84,12 @@ export class OppEditComponent implements OnInit {
       () => this.router.navigate([`/opp`])
     );
   }
+
+  deleteOpp() {
+    this.bpService.deleteOpp(this.bp.bp_nombre, this.bp_opp).subscribe(
+      (ans) => console.log(`Oportunidad Elimindad`),
+      (err) => console.log(err),
+      () => this.router.navigate([`/opp`])
+    );
+  }
 }
