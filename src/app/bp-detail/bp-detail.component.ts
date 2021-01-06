@@ -212,7 +212,7 @@ export class BpDetailComponent implements OnInit {
     this.isEditForm = true;
 
     this.editBPForm = this.formBuilder.group({
-      bp_nombre: this.bp_nombre,
+      bp_nombre: this.bp.bp_nombre,
       bp_perfilamiento: this.bp.bp_perfilamiento,
       bp_tipo: this.bp.bp_tipo,
       bp_fecha_inicio: this.bp.bp_fecha_inicio,
