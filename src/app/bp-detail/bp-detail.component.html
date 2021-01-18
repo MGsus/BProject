@@ -74,6 +74,13 @@
     >
       Editar BP
     </button>
+    <button
+      mat-raised-button
+      style="background: #e5251e; color: white; margin-left: 30px"
+      (click)="deleteBP()"
+    >
+      Eliminar BP
+    </button>
   </div>
 </div>
 
@@ -320,7 +327,7 @@
             matInput
             value=""
             name="bp_nombre"
-            formControlName="ed_bp_nombre"
+            formControlName="bp_nombre"
           />
         </mat-form-field>
 

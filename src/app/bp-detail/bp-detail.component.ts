@@ -104,13 +104,13 @@ export class BpDetailComponent implements OnInit {
             this.isOpp = true;
             this.bp_opp = data.bp_opp;
           }
-          console.log(data.bp_cert.length);
           if (data.bp_cert.length > 0) this.isCert = true;
         },
         (err) => console.log(err),
         () => {
           this.isLoading = false;
           this.isText = true;
+          console.log(this.bp);
           if (typeof this.bp_opp !== 'undefined') {
             this.bp_opp.forEach((opp: any) => {
               switch (opp.opp_tipo) {
@@ -186,7 +186,7 @@ export class BpDetailComponent implements OnInit {
         ),
       (err) => console.log(err),
       () => {
-        this.router.navigate([`/bp-detail/${this.bp_nombre}`]);
+        this.router.navigate([`/bp`]);
       }
     );
   }
@@ -212,7 +212,7 @@ export class BpDetailComponent implements OnInit {
     this.isEditForm = true;
 
     this.editBPForm = this.formBuilder.group({
-      ed_bp_nombre: this.bp.bp_nombre,
+      bp_nombre: this.bp.bp_nombre,
       bp_perfilamiento: this.bp.bp_perfilamiento,
       bp_tipo: this.bp.bp_tipo,
       bp_fecha_inicio: this.bp.bp_fecha_inicio,
@@ -224,10 +224,8 @@ export class BpDetailComponent implements OnInit {
       bp_comercial: this.bp.bp_comercial,
       bp_readiness: this.bp.bp_readiness,
       bp_com_prensa: this.bp.bp_com_prensa,
-      bp_quarter_closed: this.bp.bp_quarter_closed,
       bp_dia_cadencia: this.bp.bp_dia_cadencia,
       bp_sig_pasos: this.bp.bp_sig_pasos,
-      bp_cad_sem: this.bp.bp_cad_sem,
     });
   }
 
@@ -237,18 +235,27 @@ export class BpDetailComponent implements OnInit {
         this.msg.setMessage(`Oportunidad creada satisfactoriamente`, 'success'),
       (err) => console.log(err),
       () => {
-        this.router.navigate([`/bp-detail/${this.bp_nombre}`]);
+        this.router.navigate([`/opp`]);
       }
     );
   }
 
   editBP() {
-    this.bpService.updateBP(this.editBPForm.value).subscribe(
+    console.log('Updating');
+
+    this.bpService.updateBP(this.bp_nombre, this.editBPForm.value).subscribe(
       (ans) =>
         this.msg.setMessage(
           `El BP ${this.bp_nombre} ha sido editado`,
           'success'
         ),
+      (err) => console.log(err),
+      () => this.router.navigate([`/bp`])
+    );
+  }
+  deleteBP() {
+    this.bpService.deleteBP(this.bp_nombre).subscribe(
+      (ans) => console.log(`BP Elimindado`),
       (err) => console.log(err),
       () => this.router.navigate([`/bp`])
     );

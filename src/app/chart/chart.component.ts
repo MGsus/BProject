@@ -79,7 +79,6 @@ export class ChartComponent implements OnInit {
     this.ssQualifiedQ4 = 0;
     this.ssWonQ4 = 0;
 
-    console.log(this.datos);
     this.datos.forEach((item: any) => {
       switch (item.opp_tipo) {
         case 'TCV':
@@ -166,7 +165,6 @@ export class ChartComponent implements OnInit {
     });
 
     this.dataWon.push(this.ssWonQ1);
-    console.log(this.ssWonQ1);
 
     this.dataWon.push(this.ssWonQ2);
     this.dataWon.push(this.ssWonQ3);
